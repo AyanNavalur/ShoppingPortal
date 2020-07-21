@@ -27,7 +27,7 @@
 		style="width: 1145px; margin-top: 20px; margin-bottom: 180px;">
 		<div ng-app="myapp" ng-controller="myController"
 			style="margin-bottom: 30px">
-			<div ng-init="getCart(${cartId})">
+			<div ng-init="getCart('${cartId}')">
 				<br>List of Products Purchased:
 				
 				<div>
@@ -55,7 +55,7 @@
 					<tbody>
 						<tr ng-repeat="cart in carts.cartItem">
 							<td>{{cart.product.productName}}</td>
-							<td>{{cart.quality}}</td>
+							<td>{{cart.quantity}}</td>
 							<td>{{cart.product.productPrice}}</td>
 							<td>{{cart.price}}</td>
 							<td><a href="#" class="btn btn-danger"

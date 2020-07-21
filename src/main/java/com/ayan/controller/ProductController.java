@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,7 @@ import com.ayan.service.ProductService;
 @Controller
 public class ProductController {
 	
+	@Autowired
 	private ProductService productService;
 
 	public ProductService getProductService() {
@@ -42,7 +44,8 @@ public class ProductController {
 	// Configuration for MultiPartResolver
 	// Multipart resolver is for uploading images and other media
 	// maxupload size is for image size should not be maximum than 10240000
-	
+
+	// Declared in applicationContext configuration file
 //	@Bean
 //	public MultipartResolver multipartResolver() {
 //		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
@@ -100,7 +103,10 @@ public class ProductController {
 		// Binding Result is used if the form that has any error then it will
 		// redirect to the same page without performing any functions
 		if(result.hasErrors()) {
-			return "addProducts";
+			System.out.println("Returning same page");
+			System.out.println(result.getErrorCount());
+			System.out.println(result.getAllErrors().toString());
+			return "addProduct";
 		}
 		
 		productService.addProduct(product);

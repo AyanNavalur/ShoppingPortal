@@ -10,14 +10,14 @@
 <link rel="icon" type="image/x-icon"
 	href="<c:url value="/resource/images/favicon1.png"/>" />
 <link rel="stylesheet"
-	href="<c:url value="../resource/bootstrap/css/bootstrap.min.css"/>">
-<script src="<c:url value="../resource/js/jquery.js"/>"></script>
-<script src="<c:url value="../resource/bootstrap/js/bootstrap.min.js"/>"></script>
+	href="<c:url value="/resource/bootstrap/css/bootstrap.min.css"/>">
+<script src="<c:url value="/resource/js/jquery.js"/>"></script>
+<script src="<c:url value="/resource/bootstrap/js/bootstrap.min.js"/>"></script>
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="../resource/css/ProductList.css"/>">
+	href="<c:url value="/resource/css/ProductList.css"/>">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="<c:url value="../resource/js/productController.js"/>"></script>
+<script src="<c:url value="/resource/js/productController.js"/>"></script>
 </head>
 <body ng-app="myapp">
 	<%@ include file="navbar.jsp" %>
@@ -69,7 +69,7 @@
 							role="button"> <span class="glyphicon glyphicon-info-sign"></span></a>
 							<!-- view only for user -->
 							<security:authorize access="hasAnyRole('ROLE_USER')">
-								<a href="#" ng-click="addToCart(${prod.productId})"
+								<a href="#" ng-click="addToCart('${prod.productId}')"
 									class="btn btn-primary" style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-shopping-cart"></span></a>
 							</security:authorize>
@@ -78,7 +78,7 @@
 								<a href="admin/product/editProduct/${prod.productId}"
 									class="btn btn-success" style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-edit"></span></a>
-								<a href="admin/delete/${prod.productId}" class="btn btn-danger"
+								<a href="admin/product/delete/${prod.productId}" class="btn btn-danger"
 									style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-trash"></span></a>
 							</security:authorize>

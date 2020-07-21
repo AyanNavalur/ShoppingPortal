@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -70,8 +71,11 @@ public class CartItemController {
 	@RequestMapping("/cart/add/{productId}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void addCartItem(@PathVariable(value = "productId") String productId) {
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String emailId = user.getEmailId();
+//		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		String emailId = user.getEmailId();
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String emailId = auth.getName();
 		Customer customer = customerService.getCustomerByEmailId(emailId);
 		System.out.println("Cutomer: " + customer.getUsers().getEmailId());
 		Cart cart = customer.getCart();
@@ -82,8 +86,7 @@ public class CartItemController {
 		// if product already exists in cart
 		for(int i=0; i<cartItems.size(); i++) {
 			CartItem cartItem = cartItems.get(i);
-			//if(product.getProductId().equals(cartItem.getProduct().getProductId())) {
-			if(product.getProductId()==cartItem.getProduct().getProductId()) {
+			if(product.getProductId().equals(cartItem.getProduct().getProductId())) {
 				cartItem.setQuantity(cartItem.getQuantity() + 1);
 				cartItem.setPrice(cartItem.getQuantity() * cartItem.getProduct().getProductPrice());
 				cartItemService.addCartItem(cartItem);

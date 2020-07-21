@@ -61,7 +61,7 @@
 											<c:forEach var="cartItem" items="${order.cart.cartItem}">
 												<tr>
 												<td style="text-align: center"><em>${cartItem.product.productName}</em></td>
-												<td style="text-align: center">${cartItem.quality}</td>
+												<td style="text-align: center">${cartItem.quantity}</td>
 												<td style="text-align: center">${cartItem.product.productPrice}</td>
 												<td style="text-align: center">${cartItem.price}</td>
 												</tr>
@@ -70,7 +70,7 @@
 									</table>
 								</div>
 								<div>
-									<h4><strong>Grand Total: </strong> <strong class="text-danger">$ ${order.cart.totalPrice}</strong></h4>
+									<h4><strong>Grand Total: </strong> <strong class="text-danger">Rs. ${order.cart.totalPrice}</strong></h4>
 								</div>
 							</div>
 							<div>

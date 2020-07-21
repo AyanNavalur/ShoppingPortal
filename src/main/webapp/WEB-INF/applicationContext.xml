@@ -117,7 +117,9 @@
 	<property name="flowExecutor" ref="flowExecutor"></property>
 	</bean>
 	
-	
+	<!-- Configuration for MultiPartResolver
+	Multipart resolver is for uploading images and other media
+	maxupload size is for image size should not be maximum than 10240000 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
  		<property name="maxUploadSize" value="10240000"/>
 	</bean>

@@ -27,7 +27,7 @@
 			</security:authorize>
 			<a href="<c:url value="/login" />"><span
 				class="glyphicon glyphicon-user" /></a>
-			<a href="#"><span
+			<a href="<c:url value="/contactus" />"> <span
 				class="glyphicon glyphicon-envelope" /></a>
 		</div>
 		<div class="footer-left">

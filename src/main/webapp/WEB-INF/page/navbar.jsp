@@ -21,7 +21,7 @@
 		<div class="container-fluid">
 			<div class="nav navbar">
 				<img class="navbar-brand"
-					src="<c:url value="/resource/images/logo.png"/>"
+					src="<c:url value="/resource/images/bazar-logo.png"/>"
 					href="<c:url value="/index"/>" width="200px" height="100px"
 					alt="logo-image"></img>
 			</div>
@@ -31,7 +31,7 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<c:url value="/index" />">ShoppingPortal</a>
+				<a class="navbar-brand" href="<c:url value="/index" />">Bazaar</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">

@@ -50,8 +50,11 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public void addProduct(Product product) {
+		System.out.println("Saving product in DAO");
 		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		session.save(product);
+		session.getTransaction().commit();
 		session.close();
 	}
 

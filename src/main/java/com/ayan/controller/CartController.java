@@ -44,8 +44,13 @@ public class CartController {
 	
 	@RequestMapping("cart/getCartById")
 	public String getCartId(Model model) {
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String emailId = user.getEmailId();
+		// getting emailId from spring security
+//		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		String emailId = user.getEmailId();
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String emailId = auth.getName();
+		
 		Customer customer = customerService.getCustomerByEmailId(emailId);
 		model.addAttribute("cartId", customer.getCart().getCartId());
 		return "cart";
